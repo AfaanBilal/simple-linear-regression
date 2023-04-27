@@ -8,6 +8,15 @@ import pandas as pd
 import numpy as np
 from sklearn import linear_model
 
+st.set_page_config(
+    page_title="Simple Linear Regression",
+    page_icon="📈",
+    menu_items={
+        'About': 'Author: Afaan Bilal (https://afaan.dev) \n\nSource code: https://github.com/AfaanBilal/simple-linear-regression',
+        'Report a bug': "https://github.com/AfaanBilal/simple-linear-regression/issues",
+    }
+)
+
 data = pd.read_csv('./data.csv')
 
 st.title("Simple Linear Regression")
