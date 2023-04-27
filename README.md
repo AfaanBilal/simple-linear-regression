@@ -5,6 +5,9 @@ A quick simple linear regression demo using Streamlit.
 
 **Author**: [Afaan Bilal](https://afaan.dev)
 
+## Demo
+[Streamlit Demo](https://simple-linear-regression.streamlit.app)
+
 ---
 
 ## Contributing
