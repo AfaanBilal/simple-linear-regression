@@ -23,7 +23,7 @@ st.title("Simple Linear Regression")
 st.subheader("Afaan Bilal (https://afaan.dev)")
 
 st.subheader("Input Data")
-st.dataframe(data)
+st.dataframe(data, use_container_width=True)
 
 st.subheader("Size (sqft) vs Price ($100k)")
 st.line_chart(data[['Size', 'Price']], x = 'Size', y = 'Price')
@@ -39,9 +39,11 @@ model.fit(data[['Size','Rooms','Distance']], data['Price'])
 
 test_data = pd.read_csv('./test.csv')
 pred = model.predict(test_data[['Size', 'Rooms', 'Distance']])
+test_data['Predicted'] = np.round(pred, 2)
 
 st.subheader("Test Data and Prediction")
-test_data['Predicted'] = np.round(pred, 2)
+st.line_chart(test_data[['Size', 'Price', 'Predicted']], x = 'Size', y = ['Price', 'Predicted'])
+
 test_data['Difference'] = test_data['Price'] - test_data['Predicted']
 test_data['Error %'] = np.round((test_data['Price'] - test_data['Predicted']) * 100 / test_data['Price'], 2)
-st.dataframe(test_data)
+st.dataframe(test_data, use_container_width=True)
